@@ -1,0 +1,74 @@
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  position: relative;
+  background-image: url("/floor.jpg");
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+ul li {
+  background-image: url("/table.jpg");
+  background-size: 40%;
+  border: 1.5px solid #000000;
+  list-style-type: none;
+  margin: 2vw;
+  position: relative;
+}
+ul .places_2 {
+  width: 25vw;
+  height: 7vw;
+}
+ul .places_4 {
+  width: 40vw;
+  height: 7vw;
+}
+ul .places_6 {
+  width: 50vw;
+  height: 7vw;
+}
+ul .places_8 {
+  width: 70vw;
+  height: 7vw;
+}
+
+select {
+  position: absolute;
+  visibility: hidden;
+}
+
+li:hover select {
+  visibility: visible;
+}
+
+.reserve {
+  position: absolute;
+  margin: 1vw 0 0 0.5vw;
+}
+
+.cancel {
+  position: absolute;
+  margin: 10% 0;
+}
+
+@media (min-width: 550px) {
+  .cancel {
+    margin: 0 0 0 55%;
+    background-color: #1c1818;
+    color: #ffffff;
+  }
+
+  .reserve {
+    margin: 0 0 0 30%;
+    background-color: #1c1818;
+    color: #ffffff;
+  }
+
+  select {
+    margin: 2vw 0 0 40%;
+    background-color: #1c1818;
+    color: #ffffff;
+  }
+}
+
+/*# sourceMappingURL=Reservation.css.map */

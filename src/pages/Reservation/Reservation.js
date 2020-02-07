@@ -3,18 +3,59 @@ import { connect } from "react-redux";
 
 import { reserveAction, cancelAction } from "../../redux/actions";
 
+import "./Reservation.css"
+
 class Reservation extends React.Component {
+
+  state = {
+    table: '',
+    time: ''
+  };
 
   showTables = (tables = []) => {
     return (
-      tables.map(table => <li key={table.table}>Table: {table.table}</li>)
+      tables.map(table => <li key={table.id} className={'places_' + table.places}>
+        Table: {table.id}
+        <form id="timeline">
+          <select form="timeline" onChange={this.onChangeTime} value={this.state.time}>
+            <option value="select">Select a time</option>
+            <option value="12">12:00</option>
+            <option value="13">13:00</option>
+            <option value="14">14:00</option>
+            <option value="15">15:00</option>
+            <option value="16">16:00</option>
+            <option value="17">17:00</option>
+            <option value="18">18:00</option>
+            <option value="19">19:00</option>
+            <option value="20">20:00</option>
+            <option value="21">21:00</option>
+            <option value="22">22:00</option>
+            <option value="23">23:00</option>
+          </select>
+          <button className="reserve" onClick={this.onReserve}>Reserve</button>
+          <button className="cancel" onClick={this.onCancel}>Cancel</button>
+        </form>
+      </li>)
     );
   };
 
-  onReserve = () => {
+  onReserve = (event) => {
+    event.preventDefault();
     const tableID = document.getElementById('reserveTable').value;
-    console.log(tableID);
-    this.props.reserveTable(tableID);
+    this.props.reserveTable(this.state.table, tableID);
+  };
+
+  onCancel = (event) => {
+    event.preventDefault();
+    const tableID = document.getElementById('cancelTable').value;
+    this.props.cancelTable(this.state.table, tableID);
+  };
+
+  onChangeTime = (event) => {
+    event.preventDefault();
+    this.setState({
+      time: event.target.value
+    })
   };
 
   render() {
@@ -23,10 +64,8 @@ class Reservation extends React.Component {
     return (
       <React.Fragment>
         <div className="buttons">
-          <form action="">
-            <input id="reserveTable" type="text" name="reservation" value="1"/>
-            <button className="reserve" onClick={this.onReserve}>Reserve</button>
-            <button className="cancel" onClick={this.cancel}>Cancel</button>
+          <form id="timeline">
+
           </form>
         </div>
         <ul>
@@ -39,13 +78,14 @@ class Reservation extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    tables: state.reducer.tables
+    tables: state.reducer.reservationReducer.tables
   }
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    reserveTable: (table) => dispatch(reserveAction(table))
+    reserveTable: (table, time) => dispatch(reserveAction(table, time)),
+    cancelTable: (table, time) => dispatch(cancelAction(table, time))
   }
 };
 

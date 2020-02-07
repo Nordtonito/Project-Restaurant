@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Navigation from "../../components/Navigation/Navigation";
+import './Home.css'
 
 class Home extends React.Component {
     render() {
         return (
-            <Navigation />
+          <main>{this.props.children}</main>
         );
     }
 }

@@ -1,9 +1,9 @@
-export function reserveAction(table) {
-    return { type: 'RESERVE', table }
+export function reserveAction(table, time) {
+    return { type: 'RESERVE', table, time }
 }
 
-export function cancelAction(table) {
-     return { type: 'CANCEL', table }
+export function cancelAction(table, time) {
+     return { type: 'CANCEL', table, time }
 }
 
 export function receiveData(data) {

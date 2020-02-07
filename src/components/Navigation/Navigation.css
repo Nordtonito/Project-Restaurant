@@ -1,0 +1,40 @@
+.navigation {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 97.8vw;
+  color: #ffffff;
+  background-image: url("/background_rock.png");
+  background-size: 10%;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+.navigation a {
+  height: 6vw;
+  width: 100%;
+  color: #ffffff;
+  -webkit-text-stroke: 0.5px #000000;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  font-size: 200%;
+  line-height: 6vw;
+  border: 0.2vw solid #1c1818;
+}
+.navigation a:hover {
+  background-color: #1c1818;
+  border: 0.2vw solid #2b1818;
+}
+
+@media (min-width: 550px) {
+  .navigation {
+    flex-direction: row;
+  }
+
+  .a {
+    width: 19.5%;
+  }
+}
+
+/*# sourceMappingURL=Navigation.css.map */

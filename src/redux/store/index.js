@@ -1,8 +1,7 @@
 import { createStore } from "redux";
 import reducer from "../reducers";
-import tables from "../../data/hall";
 
-const initialState = tables;
+const initialState = {};
 
 const store = createStore(reducer, initialState);
 
